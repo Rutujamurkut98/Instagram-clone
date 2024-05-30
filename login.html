@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 350px;
+            float: right;
+            margin-right: 250px;
+        }
+
+        .login-container {
+            background-color: #fff;
+            text-align: center;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        button {
+            background-color: #49adef;
+            color: #fff;
+            padding: 7px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            width: 80%;
+            margin-top: 10px;
+           
+        }
+
+        .instagram-text-logo img {
+            width: 200px;
+            height: 100px;
+            margin-top: 20px;
+        }
+
+        .or-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            font-size: 15px;
+            color: #7a7373;
+            margin-bottom: 20px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+        }
+
+        .or-line {
+            flex-grow: 0.40;
+            margin: 10px 10px;
+            background-color:white; 
+        } 
+        .facebook-login{
+           color: rgb(13, 13, 167);
+           font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+        .forget{
+            font-size: 13px;
+            margin-bottom: 20px;
+            color: #595555;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+        .box2{
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+            
+        }
+        .box2 p, .box2 a {
+           display: inline; 
+           margin: 0; 
+        }
+
+        .box2 a {
+          text-decoration: none;
+          padding: 5px 5px;
+          border-radius: 5px;
+          color: #1884cb;
+          font-family:'Times New Roman', Times, serif;
+          font-weight: bold;
+         transition: background-color 0.3s ease;
+        }
+        .app{
+            text-align: center;
+            font-size: 13px;
+        }
+        .img-app img{
+            width: 300px;
+            height: -5px;
+            margin-top: -14px;
+            margin-left: 25px;
+        }
+        .images img {
+            height: auto;
+            top: 0;
+            display: block;
+            transition: opacity 1s ease-in-out;
+            position: absolute;
+            left: 0;
+            width: 400px;
+            margin-left: 200px;
+        }
+        #errorMessage{
+              font-size: 13px;
+              margin-left: 30px;
+              margin-right: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <div class="instagram-text-logo">
+        <img src="https://i.postimg.cc/qMFTcDw1/instagram-text.png" id="white-color" alt="Instagram Logo">
+    </div>
+    <form id="loginForm" onsubmit="login(); return false;">
+        <input type="text" placeholder="Phone number, username, or email" name="phone_number" required>
+        <input type="password" placeholder="password" name="password" required>
+        <button type="submit">Log in</button>
+    </form>
+    <div class="or-container">
+        <hr class="or-line"> OR <hr class="or-line">
+    </div>
+    <p class="facebook-login">Log in with Facebook</p>
+    <p id="errorMessage" style="color: red;"></p>
+    <p class="forget">forget password?</p>
+</div>
+<div class="box2">
+    <p>Don't have an account?</p> <a href="#">Sign up</a>
+</div>
+<p class="app">Get the app</p>
+<div class="img-app">
+    <img src="Images/Screenshot (35).png">
+</div>
+<div class="images">
+    <img src="Images/Screenshot (36).png">
+    <img src="Images/Screenshot (37).png">
+    <img src="Images/Screenshot (38).png">
+    <img src="Images/Screenshot (39).png">
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let images = document.querySelectorAll('.images img');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].style.opacity = 0;
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].style.opacity = 1;
+        }
+        images.forEach((image, index) => {
+            image.style.transition = 'opacity 1s ease-in-out';
+            if (index !== 0) {
+                image.style.opacity = 0;
+            }
+        });
+        setInterval(showNextImage, 3000);
+
+    });
+    function login() {
+            var phone_number = document.forms["loginForm"]["phone_number"].value;
+            var password = document.forms["loginForm"]["password"].value;
+
+            var correctPhone = "Rutuja";
+            var correctPassword = "Rutuja123";
+
+            var errorMessage = document.getElementById("errorMessage");
+
+            if (phone_number === correctPhone && password === correctPassword) {
+                window.location.href = "Index.html";
+            } else {
+                errorMessage.textContent = 'Sorry, your password was incorrect. Please double-check your password.';
+            }
+        }
+
+</script>
+</body>
+</html>

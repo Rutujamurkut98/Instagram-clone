@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Login Page</title>
+    <style>
+        /* Your existing styles remain unchanged */
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <div class="instagram-text-logo">
+        <img src="https://i.postimg.cc/qMFTcDw1/instagram-text.png" id="white-color" alt="Instagram Logo">
+    </div>
+    <form id="loginForm">
+        <input type="text" placeholder="Phone number, username, or email" name="phone_number" required>
+        <input type="password" placeholder="password" name="password" required>
+        <button type="button" onclick="login()">Log in</button>
+    </form>
+    <div class="or-container">
+        <hr class="or-line"> OR <hr class="or-line">
+    </div>
+    <p class="facebook-login">Log in with Facebook</p>
+    <p class="forget">forget password?</p>
+</div>
+<div class="box2">
+    <p>Don't have an account?</p> <a href="#">Sign up</a>
+</div>
+<p class="app">Get the app</p>
+<div class="img-app">
+    <img src="Images/Screenshot (35).png">
+</div>
+<div class="images">
+    <img src="Images/Screenshot (36).png">
+    <img src="Images/Screenshot (37).png">
+    <img src="Images/Screenshot (38).png">
+    <img src="Images/Screenshot (39).png">
+</div>
+<script>
+    function login() {
+        var phone_number = document.forms["loginForm"]["phone_number"].value;
+        var password = document.forms["loginForm"]["password"].value;
+
+        // Define the correct phone_number and password
+        var correctPhone = "123";
+        var correctPassword = "123";
+
+        // Check if the submitted phone_number and password match the correct ones
+        if (phone_number === correctPhone && password === correctPassword) {
+            // Successful login, redirect to another page
+            window.location.href = "Index.html";
+        } else {
+            // Wrong phone_number or password, display an error message
+            alert("Sorry, wrong phone number or password.");
+        }
+    }
+</script>
+</body>
+</html>
